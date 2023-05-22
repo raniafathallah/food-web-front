@@ -1,0 +1,58 @@
+<div class="list-container">
+     <div *ngFor='let d of data'>
+          <mat-card class="example-card" [routerLink]="['/details', d._id]" >
+               <div   class="img-container" [routerLink]="['/details', d._id]" >
+                    <!-- <img  src="../../../assets/burger.png" /> -->
+                    <img src={{d.image}} />
+               </div>
+               <mat-card-header>
+ 
+                    <mat-card-title>
+                         <p class="product-title" >
+                              {{d.name}}
+                         </p>
+                    </mat-card-title>
+               </mat-card-header>
+               <mat-card-content>
+            
+                    <p>
+                         <mat-card-subtitle> Price :{{d.price}} $</mat-card-subtitle>
+                    </p>
+                    <div>
+                         <span style="float: left">
+                               time :
+                                   <strong>
+                                        {{d.time}} 
+                                        </strong>
+                         </span>
+                         <span style="float: right">
+                               portion :
+                                   <strong>
+                                        {{d.portion}} person
+
+                                   </strong>
+                         </span>
+
+                    <!-- <p>
+                         {{d.description}}
+                    </p> -->
+                    </div>
+
+               </mat-card-content>
+               <div>
+                    <button mat-flat-button color="warn" class="order-btn">Order Now</button>
+               </div>
+               <div *ngIf="isadmin" style="text-align:right ;" >
+                    <button mat-button (click)="deleteProduct(d._id)">
+                         <mat-icon>delete</mat-icon>
+                         delete
+                    </button>
+                    <button mat-button [routerLink]="['/edit', d._id]">
+                         <mat-icon>edit</mat-icon>
+                         edit
+                    </button>
+               </div>
+          </mat-card>
+     </div>
+
+</div>

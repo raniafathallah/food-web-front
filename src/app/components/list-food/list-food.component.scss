@@ -1,0 +1,146 @@
+.example-card {
+     max-width: 300px;
+     min-height: 454px;
+     box-shadow: 2px 2px 2px #eee;
+}
+.example-card :hover{
+     cursor: pointer;
+}
+
+.example-header-image {
+     background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+     background-size: cover;
+}
+
+.list-container {
+     display: flex;
+     flex-wrap: wrap;
+     text-align: left;
+     margin:  20px 1% 0px 1%;
+}
+
+.list-container>div {
+     max-width: 18.5%;
+     margin: 10px;
+}
+
+.new-btn {
+     float: right;
+     margin: 2% 4% 0% 0%;
+
+}
+
+.mat-mdc-card-header {
+     display: flex;
+     padding: 16px 16px 0;
+     flex-flow: column;
+ }
+ .img-container
+ {
+     width: 100%;
+     overflow: hidden;
+ }
+ .img-container img
+ {
+     height: 250px;
+     width: 100%;
+     transition: 0.5s all ease-in-out;
+     min-width: 300px;
+ }
+ .img-container:hover img{
+     cursor: pointer;
+     transform: scale(1.1);
+
+ }
+ .mat-mdc-card-title, .mat-mdc-card-subtitle{
+     padding:0px 20px;
+     text-align: center;
+ }
+
+ .mat-mdc-card-title{
+     padding: 0px;
+}
+
+
+ .product-title{
+     min-height: 64px;
+     text-transform: capitalize;
+}
+
+.order-btn{
+     width:100%;
+}
+
+@media only screen and (min-width: 1507px) and (max-width: 1560px) {
+     .list-container>div {
+          max-width: 23.5%;
+     }
+}
+@media only screen and (min-width: 1220px) and (max-width: 1507px) {
+     .list-container>div {
+          max-width: 23%;
+     }
+
+}
+
+
+@media only screen and (min-width: 1056px) and (max-width: 1220px) {
+     .list-container>div {
+          max-width: 22.5%;
+     }
+
+}
+
+
+@media only screen and (min-width: 992px) and (max-width: 1056px) {
+     .list-container>div {
+          max-width: 30.5%;
+     }
+
+}
+
+
+@media only screen and (min-width: 858px) and (max-width: 992px) {
+     .list-container>div {
+          max-width: 30.5%;
+     }
+
+}
+
+
+@media only screen and (min-width: 782px) and (max-width: 858px) {
+     .list-container>div {
+          max-width: 46.5%;
+     }
+ 
+}
+
+@media only screen and (min-width: 676px) and (max-width: 782px) {
+     .list-container>div {
+          max-width: 45%;
+     }
+
+}
+@media only screen and (min-width: 300px) and (max-width: 676px) {
+     .list-container>div {
+          max-width: 45%;
+     }
+
+}
+
+@media only screen and (min-width: 0px) and (max-width: 408px) {
+     .list-container>div {
+          max-width: 100%;
+     }
+
+}
+
+@media only screen and (min-width: 0px) and (max-width: 1570px) {
+     .list-container>div>div {
+
+          max-width: none;
+       }
+}
+
+
+

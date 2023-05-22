@@ -1,0 +1,74 @@
+<div class="register-container">
+     <div class="card m-3 ">
+          <h5 class="card-header">Sign up </h5>
+          <div class="card-body">
+
+               <!-- <div>{{form.value|json}}</div> -->
+               <!-- <div>{{loginUser|json}}</div> -->
+               <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+                    <div class="row">
+                         <div class="col mb-3">
+                              <label class="form-label">name</label>
+                              <input type="text" formControlName="name" class="form-control"
+                                   [ngClass]="{'is-invalid':form.get('name')?.errors}" />
+                              <div *ngIf="submitted&& form.get('name')?.errors" class="invalid-feedback">
+                                   <div *ngIf="form.get('name')?.hasError('required')">Name is required</div>
+                                   <div
+                                        *ngIf="form.get('name')?.hasError('minlength')&&!form.get('name')?.hasError('required')">
+                                        Name must be more than 6 chars</div>
+
+                              </div>
+                         </div>
+                    </div>
+
+                    <div class="row">
+                         <div class="col mb-3">
+                              <label class="form-label">email</label>
+                              <input type="text" formControlName="email" class="form-control"
+                                   [ngClass]="{'is-invalid':form.get('email')?.errors}" />
+                              <div *ngIf="submitted&& form.get('email')?.errors" class="invalid-feedback">
+                                   <div *ngIf="form.get('email')?.hasError('required')">Email is required</div>
+                                   <div *ngIf="form.get('email')?.hasError('email')">enter correct email</div>
+                              </div>
+                         </div>
+                    </div>
+
+                    <div class="row">
+                         <div class="col mb-3">
+                              <label class="form-label">password</label>
+                              <input type="text" formControlName="password" class="form-control"
+                                   [ngClass]="{'is-invalid':form.get('password')?.errors}" />
+                              <div *ngIf="submitted&& form.get('password')?.errors" class="invalid-feedback">
+                                   <div *ngIf="form.get('password')?.hasError('required')">password is required</div>
+                                   <div
+                                        *ngIf="form.get('password')?.hasError('minlength')&&!form.get('password')?.hasError('required')">
+                                        pass must be more than 6 chars</div>
+
+                              </div>
+                         </div>
+                    </div>
+
+                    <div class="row">
+                         <div class="col mb-3">
+                              <label class="form-label">confirm Password</label>
+                              <input type="text" formControlName="confirmPassword" class="form-control"
+                                   [ngClass]="{'is-invalid':form.get('confirmPassword')?.errors}" />
+                              <div *ngIf="submitted&& form.get('confirmPassword')?.errors" class="invalid-feedback">
+                                   <div *ngIf="form.get('confirmPassword')?.hasError('required')">confirmPassword is
+                                        required</div>
+                                   <div *ngIf="form.get('confirmPassword')?.hasError('matching')">confirmPassword is
+                                        must be like pass</div>
+
+                              </div>
+                         </div>
+                    </div>
+
+                    <div class="text-center">
+                         <button class="btn btn-primary me-2">Register</button>
+                         <button class="btn btn-secondary" type="reset" (click)="onReset()">Clear</button>
+                    </div>
+               </form>
+          </div>
+     </div>
+</div>

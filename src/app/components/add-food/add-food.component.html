@@ -1,0 +1,112 @@
+<!-- {{form.value|json}} -->
+<div class="card m-3">
+     <h5 class="card-header">Add Product </h5>
+     <div class="card-body">
+
+          <form [formGroup]="form" (ngSubmit)="onSubmit()">
+               <div class="row">
+                    <div class="col mb-3">
+                         <label class="form-label">name</label>
+                         <input type="text" formControlName="name" class="form-control"
+                              [ngClass]="{'is-invalid':form.get('name')?.errors}" />
+                         <div *ngIf="submitted&& form.get('name')?.errors" class="invalid-feedback">
+                              <div *ngIf="form.get('name')?.hasError('required')">Name is required</div>
+                                   <div *ngIf="form.get('name')?.hasError('minlength')&&!form.get('name')?.hasError('required')"> Name must be more than 10 chars</div>
+                                   <div *ngIf="form.get('name')?.hasError('maxlength')&&!form.get('name')?.hasError('required')"> Name must be less than 20 chars
+                              </div>
+                         </div>
+                    </div>
+               </div>
+               <div class="row">
+                    <div class="col mb-3">
+                         <label class="form-label">description</label>
+                         <textarea type="text" formControlName="description" class="form-control" rows="4" cols="70"
+                              [ngClass]="{'is-invalid':form.get('description')?.errors}" ></textarea>
+                         <div *ngIf="submitted&& form.get('description')?.errors" class="invalid-feedback">
+                              <div *ngIf="form.get('description')?.hasError('required')">Description is required</div>
+                         </div>
+                    </div>
+               </div>
+
+               <div class="row">
+                    <div class="col mb-3">
+                         <label class="form-label">price</label>
+                         <input type="text" formControlName="price" class="form-control"
+                              [ngClass]="{'is-invalid':form.get('price')?.errors}" />
+                         <div *ngIf="submitted&& form.get('price')?.errors" class="invalid-feedback">
+                              <div *ngIf="form.get('price')?.hasError('required')">Description is required</div>
+                              <div *ngIf="form.get('price')?.hasError('pattern')">
+                                   numberInputName must be greater than zero
+                              </div> 
+                         </div>
+                    </div>
+               </div>
+
+               <div class="row">
+                    <div class="col mb-3">
+                         <label class="form-label">category</label>
+                         <select class="form-select form-select-lg mb-3" formControlName="category"
+                              aria-label=".form-select-lg example"
+                              [ngClass]="{'is-invalid':form.get('category')?.errors}">
+                              <option selected>Open this select menu</option>
+                              <option value="Coffee">Coffee</option>
+                              <option value="Tea">Tea</option>
+                              <option value="Pizza">Pizza</option>
+                              <option value="Burger">Burger</option>
+                         </select>
+                         <div *ngIf="submitted&& form.get('category')?.errors" class="invalid-feedback">
+                              <div *ngIf="form.get('category')?.hasError('required')">category is required</div>
+                         </div>
+                    </div>
+               </div>
+
+
+               <div class="row">
+                    <div class="col mb-3">
+                         <label class="form-label">time</label>
+                         <input type="text" formControlName="time" class="form-control"
+                              [ngClass]="{'is-invalid':form.get('time')?.errors}" />
+                         <div *ngIf="submitted&& form.get('time')?.errors" class="invalid-feedback">
+                              <div *ngIf="form.get('time')?.hasError('required')">time is required</div>
+                              <div *ngIf="form.get('time')?.hasError('pattern')">
+                                   time must be greater than zero
+                              </div> 
+                        
+                         </div>
+                    </div>
+               </div>
+               <div class="row">
+                    <div class="col mb-3">
+                         <label class="form-label">portion</label>
+                         <input type="text" formControlName="portion" class="form-control"
+                              [ngClass]="{'is-invalid':form.get('time')?.errors}" />
+                         <div *ngIf="submitted&& form.get('portion')?.errors" class="invalid-feedback">
+                              <div *ngIf="form.get('portion')?.hasError('required')">portion is required</div>
+                              <div *ngIf="form.get('portion')?.hasError('pattern')">
+                                   portion must be greater than zero
+                              </div> 
+                        
+                         </div>
+                    </div>
+               </div>
+
+               <div class="row">
+                    <div class="col mb-3">
+                         <label class="form-label">image</label>
+                         <input type="text" formControlName="image" class="form-control"  
+                              [ngClass]="{'is-invalid':form.get('image')?.errors}" />
+                         <div *ngIf="submitted&& form.get('image')?.errors" class="invalid-feedback">
+                              <div *ngIf="form.get('image')?.hasError('required')">Description is required</div>
+                         </div>
+                    </div>
+               </div>
+           
+
+
+               <div class="text-center">
+                    <button class="btn btn-primary me-2">Submit</button>
+                    <button class="btn btn-secondary" type="reset" (click)="onReset()">Reset</button>
+               </div>
+          </form>
+     </div>
+</div>

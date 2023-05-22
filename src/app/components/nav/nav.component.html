@@ -1,0 +1,47 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>Tasty Recipes</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="list">List</a>
+      <a *ngIf="isAdmin" mat-list-item routerLink="add">New
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <div style="width: 100%;">
+
+        <span>  </span>
+        <div [ngSwitch]="userLogin" style="float: right;">
+          <span *ngSwitchCase="false" class="nav-btns">
+            <button mat-button color="primary" routerLink="/login">Login</button>
+            <button mat-button color="primary" routerLink="/register">Sign up</button>
+          </span>
+          <span *ngSwitchCase="true" class="nav-islogin">
+            Hi {{userName}}
+            <button *ngIf="isAdmin" mat-button color="primary" routerLink="/add">
+              Add product
+            </button>
+            <button mat-button color="primary" (click)="logOut()">Log Out
+
+            </button>
+          </span>
+
+        </div>
+      </div>
+
+
+
+      <!-- <div> ADMIN {{ isAdmin}} USER {{ userLogin}}</div> -->
+
+      <!-- <div *ngIf="isLogin">Hello {{loginUser.name}}</div> -->
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+    <!-- Add Content Here -->
+  </mat-sidenav-content>
+</mat-sidenav-container>
